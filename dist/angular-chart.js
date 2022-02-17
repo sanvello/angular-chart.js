@@ -326,7 +326,9 @@
             data: item
           });
           if (datasetOverride && datasetOverride.length >= i) {
-            angular.merge(dataset, datasetOverride[i]);
+            // https://github.com/jtblin/angular-chart.js/issues/510
+            //angular.merge(dataset, datasetOverride[i]);
+            $.extend(true, dataset, datasetOverride[i]);
           }
           return dataset;
         })
